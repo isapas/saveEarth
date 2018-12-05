@@ -1,5 +1,8 @@
-<?php include "template/header.php"; ?>
-
+<?php
+  require "../controller/volunteerController.php";
+  include "template/header.php";
+  //require "../model/db.php";
+?>
 <div class="container">
   <section class="d-flex flex-row justify-content-between">
     <h1 class="col-4 mt-0">Administrer les bénévoles</h1>
@@ -28,18 +31,19 @@
       </thead>
       <tbody>
         <?php
-          // On récupère tout le contenu de la table materiel
-          $result = getMateriels($db);
+          // On récupère tout le contenu de la table volunteers
+          $result = getVolunteers($db);
           // On affiche chaque entrée une à une
           foreach ($result as $key => $value) {
         ?>
         <tr class="text-center">
-          <td class="text-left"><?php echo $value["nom"]; ?></td>
+          <td class="text-left"><?php echo $value["name"]; ?></td>
+          <td class="d-none d-md-table-cell"><?php echo $value["surname"]; ?></td>
           <td class="d-none d-md-table-cell"><?php echo $value["age"]; ?></td>
-          <td class="d-none d-md-table-cell"><?php echo $value["commentaire"]; ?></td>
-          <td class="d-none d-lg-table-cell"><?php echo ($value["disponibilité"] == 1)?"disponible":"Indisponible"; ?></td>
-          <td class="d-none d-lg-table-cell"><?php echo ($value["rue"]); ?></td>
-          <td class="d-none d-lg-table-cell"><?php echo $value["ville"]; ?></td>
+          <td class="d-none d-md-table-cell"><?php echo $value["comment"]; ?></td>
+          <td class="d-none d-lg-table-cell"><?php echo ($value["disponibility"] == 1)?"disponible":"Indisponible"; ?></td>
+          <td class="d-none d-lg-table-cell"><?php echo ($value["street"]); ?></td>
+          <td class="d-none d-lg-table-cell"><?php echo $value["city"]; ?></td>
         </tr>
         <?php
           }
@@ -48,4 +52,4 @@
     </table>
   </div>
 
-<?php include "template/footer.php"; ?>
+<?php include "/template/footer.php"; ?>
