@@ -1,24 +1,24 @@
 <?php
-require "../model/db.php";
+
 //retourne une entrée de la table volunteers en fonction de son id
 function getVolunteer($db,$id){
-  $requete = $db->prepare('SELECT * FROM volunteers where id= ?');
-  $requete->execute(array($id));
+  $query = $db->prepare('SELECT * FROM volunteers where id= ?');
+  $query->execute(array($id));
   $result = $requete->fetch(PDO::FETCH_ASSOC);
-  $requete->closeCursor();
+  $query->closeCursor();
 }
  //retourne toutes les entrées de la table volunteers
 function getVolunteers($db) {
-  $requete = $db->query('SELECT * FROM volunteers');
-  $result = $requete->fetchAll(PDO::FETCH_ASSOC);
-  $requete->closeCursor();
+  $query = $db->query('SELECT * FROM volunteers');
+  $result = $query->fetchAll(PDO::FETCH_ASSOC);
+  $query->closeCursor();
   return $result;
 }
 //modifie une entrée de la table volunteer existante en fonction de son id
 function updateVolunteer($db,$form){
   //var_dump($form);
-  $requete = $db->prepare('UPDATE volunteers SET name = :name, surname = :surname, age : age, comment = :comment, disponibility = :disponibility, street = :street, city = :city WHERE id = :id');
-  $result = $requete->execute(
+  $query = $db->prepare('UPDATE volunteers SET name = :name, surname = :surname, age : age, comment = :comment, disponibility = :disponibility, street = :street, city = :city WHERE id = :id');
+  $result = $query->execute(
     array(
     'id' => $form["id"],
     'name' => $form["name"],
@@ -28,15 +28,15 @@ function updateVolunteer($db,$form){
     'disponibility' => $form["disponibility"],
     'street' => $form["street"],
     'city' => $form["city"]));
-  $requete->closeCursor();
+  $query->closeCursor();
   return $result;
 }
 
 //ajoute une entrée dans la table volunteers
 function addvolunteer($db,$form){
   //var_dump($form);
-  $requete = $db->prepare('INSERT INTO volunteers( id,name, surname, age, comment, disponibility, street, city) VALUES(:name, :surname, :age, :comment, :disponibility, :street, :city)');
-  $result = $requete->execute(
+  $query = $db->prepare('INSERT INTO volunteers( id,name, surname, age, comment, disponibility, street, city) VALUES(:name, :surname, :age, :comment, :disponibility, :street, :city)');
+  $result = $query->execute(
     array(
       'id' => $form['id'],
       'name' => $form["name"],
@@ -46,13 +46,13 @@ function addvolunteer($db,$form){
       'disponibility' => $form["disponibility"],
       'street' => $form["street"],
       'city' => $form["city"]));
-  $requete->closeCursor();
+  $query->closeCursor();
   return $result;
 }
 
 //efface une entrée de la table volunteers en fonction de son id
 function deleteVolunteer($db,$id){
-  $requete = $db->prepare('DELETE FROM volunteers where id= ?');
-  $result = $requete->execute(array($id));
+  $query = $db->prepare('DELETE FROM volunteers where id= ?');
+  $result = $query->execute(array($id));
   return $result;
 }
