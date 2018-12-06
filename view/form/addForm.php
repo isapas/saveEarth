@@ -1,64 +1,50 @@
-<?php include "../template/header.php" ;?>
 
-div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
+<form class="m-auto w-50" method="post" action="addVolunteerControler.php">
+  <div class="form-group">
+    <div class="">
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" id="name" placeholder="" value="" name="name"required>
+    </div>
+    <div class=" mb-3">
+      <label for="surname">Prénom</label>
+      <input type="text" class="form-control" id="surname" placeholder="" value="" name="surname" required>
+    </div>
+    <div class="mb-3">
+      <label for="age">age</label>
+        <input type="number" class="form-control" name="age" id="age" placeholder="" aria-describedby="inputGroupPrepend2" required>
       </div>
-      <div class="modal-body">
-        <form>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault01">First name</label>
-      <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault02">Last name</label>
-      <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationDefaultUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend2">@</span>
-        </div>
-        <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
-      </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault03">City</label>
-      <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault04">State</label>
-      <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Zip</label>
-      <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
     </div>
   </div>
   <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-      <label class="form-check-label" for="invalidCheck2">
-        Agree to terms and conditions
-      </label>
+    <div class="mb-3">
+      <label for="disponibility">Disponibilité</label>
+      <!-- <input type="text" class="form-control" id="validationDefault03" placeholder="" name="diponibility"required> -->
     </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
-</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+    <div class="form-check form-check-inline mb-3">
+  <input class="form-check-input" type="checkbox" id="1" value="1" name="disponibility">
+  <label class="form-check-label" for="1">disponible</label>
 </div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="0" value="0" name="disponibility">
+  <label class="form-check-label" for="0">indisponible</label>
+</div>
+    <div class="mb-3">
+      <label for="street">Rue</label>
+      <input type="text" class="form-control" id="street" placeholder="" name="street"required>
+    </div>
+    <div class="mb-3">
+      <label for="city">Ville</label>
+      <input type="text" class="form-control" id="city" placeholder="" name="city" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-group">
+  <label for="comment">Commentaires</label>
+  <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+</div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+  </div>
+</form>
