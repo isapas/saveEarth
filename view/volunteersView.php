@@ -1,6 +1,5 @@
 <?php
   include "template/header.php";
-//var_dump($volunteers);
 ?>
 <div class="container">
   <section class="text-center">
@@ -21,6 +20,7 @@
   <div class="container-fluid">
     <table class="table table-hover">
       <thead class="thead-light">
+          <th scope="col" class="d-none d-md-table-cell text-center ">id</th>
           <th scope="col" class="d-none d-md-table-cell text-center ">Nom</th>
           <th scope="col" class="d-none d-md-table-cell text-center">Prénom</th>
           <th scope="col" class="d-none d-md-table-cell text-center">Âge</th>
@@ -38,6 +38,7 @@
           foreach ($volunteers as $key => $value) {
         ?>
         <tr class="text-center">
+          <td class="text-left"><?php echo $value["volunteerID"]; ?></td>
           <td class="text-left"><?php echo $value["name"]; ?></td>
           <td class="d-none d-md-table-cell"><?php echo $value["surname"]; ?></td>
           <td class="d-none d-md-table-cell"><?php echo $value["age"]; ?></td>

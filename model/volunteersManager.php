@@ -2,9 +2,10 @@
 
 //retourne une entrée de la table volunteers en fonction de son id
 function getVolunteer($db,$id){
-  $query = $db->prepare('SELECT * FROM volunteers where id= ?');
+  $query = $db->prepare('SELECT * FROM volunteers WHERE volunteerID= ?');
   $query->execute(array($id));
   $result = $query->fetch(PDO::FETCH_ASSOC);
+  return $result;
   $query->closeCursor();
 }
  //retourne toutes les entrées de la table volunteers
@@ -16,11 +17,11 @@ function getVolunteers($db) {
 }
 //modifie une entrée de la table volunteer existante en fonction de son id
 function updateVolunteer($db,$form){
-  //var_dump($form);
-  $query = $db->prepare('UPDATE volunteers SET name = :name, surname = :surname, age : age, comment = :comment, disponibility = :disponibility, street = :street, city = :city WHERE volunteerID = :volunteerID');
+
+  $query = $db->prepare('UPDATE volunteers SET name = :name, surname = :surname, age = :age, comment = :comment, disponibility = :disponibility, street = :street, city = :city WHERE volunteerID = :volunteerID');
   $result = $query->execute(
     array(
-    'volunteerID' => $form["id"],
+    'volunteerID'=>$form['id'],
     'name' => $form["name"],
     'surname' => $form["surname"],
     'age' => $form["age"],

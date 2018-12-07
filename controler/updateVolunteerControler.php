@@ -1,15 +1,23 @@
 <?php
 require "../model/db.php";
-$db = dbconnect();
+
 require "../model/volunteersManager.php";
 require "../service/formChecker.php";
-$id = $_GET['id'];
-$volunteer = getVolunteer($db,$id);
-if(!empty($_POST)) {
-  $form = clearFormEntries($_POST);
-  updateVolunteer($db,$_POST);
+$db = dbconnect();
+if(!empty($_GET['id'])) {
+  $id = htmlspecialchars( $_GET['id']);
+  //var_dump($id);
+  $volunteer = getVolunteer($db,$id);
+  // var_dump($volunteer);
+}
+
+  //var_dump($volunteer);
+  if(!empty($_POST)) {
+    $form = clearFormEntries($_POST);
+    //var_dump($_POST);
+    updateVolunteer($db,$_POST);
   header('Location: volunteersControler.php');
   exit;
-}
+  }
 require "../view/updateVolunteerView.php";
  ?>
