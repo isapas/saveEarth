@@ -1,3 +1,4 @@
 <?php
-  header ("Location: view/accueilView.php");
+  header ("Location: controler/index.php");
+  exit;
 ?>

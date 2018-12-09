@@ -11,7 +11,7 @@
           <div class="card-body">
             <h5 class="card-title">Accéder à la plateforme d'administration des bénévoles</h5>
             <p class="card-text">Vous pourrez ajouter, modifier et supprimer un bénévole</p>
-            <a href="#" class="btn btn-primary">J'y vais</a>
+            <a href="../controler/volunteersControler.php" class="btn btn-primary">J'y vais</a>
           </div>
         </div>
       </div>
@@ -25,12 +25,6 @@
         </div>
       </div>
   </section>
-
-
-
-
-
-
 
   <?php
   include "template/footer.php";
