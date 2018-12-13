@@ -14,7 +14,7 @@
   </div>
   </section>
   <div class="container d-flex ">
-    <a href="../controler/addVolunteerControler.php" class="btn btn-success ">Ajouter un bénévole</a>
+    <a href="../Controller/addVolunteerController.php" class="btn btn-success ">Ajouter un bénévole</a>
 
   </div>
   <div class="container-fluid">
@@ -46,8 +46,8 @@
           <td class="d-none d-lg-table-cell"><?php echo ($value["disponibility"] == 1)?"disponible":"Indisponible"; ?></td>
           <td class="d-none d-lg-table-cell"><?php echo ($value["street"]); ?></td>
           <td class="d-none d-lg-table-cell"><?php echo $value["city"]; ?></td>
-          <td><a href="updateVolunteerControler.php?id=<?php echo $value['volunteerID'];  ?>"class="btn btn-warning">Modifier</a></td>
-          <td><a href="deleteVolunteerControler.php?id=<?php echo $value['volunteerID'];  ?>" class="btn btn-danger">Supprimer</a></td>
+          <td><a href="updateVolunteerController.php?id=<?php echo $value['volunteerID'];  ?>"class="btn btn-warning">Modifier</a></td>
+          <td><a href="deleteVolunteerController.php?id=<?php echo $value['volunteerID'];  ?>" class="btn btn-danger">Supprimer</a></td>
         </tr>
         <?php
           }

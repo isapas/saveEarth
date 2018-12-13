@@ -16,7 +16,7 @@ if(!empty($_GET['id'])) {
     $form = clearFormEntries($_POST);
     //var_dump($_POST);
     updateVolunteer($db,$_POST);
-  header('Location: volunteersControler.php');
+  header('Location: volunteersController.php');
   exit;
   }
 require "../view/updateVolunteerView.php";

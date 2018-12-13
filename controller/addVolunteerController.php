@@ -7,7 +7,7 @@
   if(!empty($_POST)) {
     $form = clearFormEntries($_POST);
     addVolunteer($db,$form);
-    header('Location: volunteersControler.php');
+    header('Location: volunteersController.php');
     exit;
   }
 //var_dump($result);
