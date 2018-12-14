@@ -1,8 +1,4 @@
 <?php
-  header ("Location: Controller/index.php");
+  header ("Location: controller/index.php");
   exit;
 ?>
-<?php
-//  require  "config/global.php";
-
- ?>

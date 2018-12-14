@@ -15,9 +15,11 @@
 
   // function getRoutes(){
   //   return [
-  //     "" => [
-  //       "accueil" =>
+  //     "accueil" => [
+  //       "volunteers",
+  //       "home"
   //     ]
-  //   ]
+  //
+  //   ];
   // }
  ?>

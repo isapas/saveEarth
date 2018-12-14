@@ -2,7 +2,7 @@
 
 <?php
   include "template/header.php";
-  restrictToAdmin();
+  //restrictToAdmin();
 ?>
 <section class="container-fluid text-center">
   <h3 class="col-12 text-center">Bienvenue sur la plateforme d'administration: que souhaitez-vous faire?</h3>

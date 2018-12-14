@@ -10,9 +10,17 @@ function getUsers($db) {
 }
 
 //retourne un utilisateur de la db en fonction de son id
-function getUser($db, $id) {
+function getUserById($db, $id) {
   $query = $db->prepare('SELECT * FROM users WHERE userID= ?');
   $query->execute(array($id));
+  $result = $query->fetch(PDO::FETCH_ASSOC);
+  return $result;
+  $query->closeCursor();
+}
+function getUser($pseudo, $password) {
+  $db= dbconnect();
+  $query = $db->prepare('SELECT * FROM users WHERE pseudo =? AND password =?');
+  $query->execute(array($pseudo,$password));
   $result = $query->fetch(PDO::FETCH_ASSOC);
   return $result;
   $query->closeCursor();
@@ -33,8 +41,17 @@ function adduser($db,$user){
       'availability' => $user["availability"],
       'street' => $user["street"],
       'city' => $user["city"]));
-  $query->closeCursor();
+    $query->closeCursor();
   //return $result;
 }
+//retourne une entrée de la table users en fonction de son pseudo
+  function getUserByPseudo($user) {
+    $db = dbconnect();
+    $query = $db ->prepare('SELECT *FROM users WHERE pseudo= ?');
+    $query-> execute(array($user['pseudo']));
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    $query->closeCursor();
+    return $result;
+  }
 
  ?>

@@ -8,6 +8,14 @@ function getVolunteer($db,$id){
   return $result;
   $query->closeCursor();
 }
+function getUser($pseudo, $password) {
+  $db= dbconnect();
+  $query = $db->prepare('SELECT * FROM users WHERE pseudo =? AND password =?');
+  $query->execute(array($pseudo,$password));
+  $result = $query->fetch(PDO::FETCH_ASSOC);
+  return $result;
+  $query->closeCursor();
+}
  //retourne toutes les entrées de la table volunteers
 function getVolunteers($db) {
   $query = $db->query('SELECT * FROM volunteers');

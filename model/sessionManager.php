@@ -1,6 +1,6 @@
 <?php
 
-function initializeAnonymousSession($answers) {
+function initializeAnonymousSession() {
   session_start();
   $_SESSION['user'] = 'anonymous';
 }
@@ -8,6 +8,12 @@ function initializeAnonymousSession($answers) {
 function initializeUserSession($user) {
   session_start();
   $_SESSION['user'] = $user;
+  if ($user['status'] = 0){
+    $_SESSION['user'] = 'user';
+  }
+  if($user['status'] = 1){
+    $_SESSION['user'] = 'admin';
+  }
 }
 
 //restreint l'accès aux seules utilisateurs connectés
@@ -19,7 +25,9 @@ function restrictToUser() {
   return false;
 }
 
-
-
-
+function restrictToAdmin() {
+  if($_SESSION['user'] = 'admin') {
+    return true;
+  }
+}
  ?>
